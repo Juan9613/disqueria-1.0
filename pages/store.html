@@ -4,33 +4,153 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Tienda virtual para la compra de artículos musicales, preferentemente vinílos y discos. También hay libros, tazas, remeras y mucho más con tus artistas favoritos.">
-    <link rel="stylesheet" href="../assets/styles.css"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/css/main.css"/>
     <title>La Disquería</title>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-md bg-body-secondary" role="navigation">
-            <div class="container-fluid">
-                <a class="logo-link nav-brand py-2" href="../index.html" aria-label="Redirige a la página principal">
-                    <img class="logo-img" src="../assets/img.jpg" alt="Logo del sitio" style="height: 56px">
+        <nav class="header navbar navbar-expand-sm" role="navigation">
+            <a class="navbar-brand logo" href="../index.html" aria-label="Abrir página principal de la Disquería">
+                <svg aria-label="Logo de La Disquería" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-vinyl" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                    <path d="M8 6a2 2 0 1 0 0 4 2 2 0 0 0 0-4M4 8a4 4 0 1 1 8 0 4 4 0 0 1-8 0"/>
+                    <path d="M9 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+                </svg>
+            </a>
+            <button class="navigationToggler navbar-toggler btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-label="Abrir menu principal de La Disquería">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <nav class="navigation collapse navbar-collapse pt-sm-3 pt-lg-0" id="navbarSupportedContent">
+                <ul class="navbar-nav" aria-label="Menu principal de La Disquería">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Inicio</a>
+                    </li>
+                    <div class="vr" aria-hidden="true"></div>
+                    <li class="nav-item dropdown">
+                        <a aria-label="Abrir menu con categorías de la Tienda de La Disquería" class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Tienda</a>
+                        <ul class="dropdown-menu" aria-label="Menu de categorías de la Tienda de La Disquería">
+                            <li>
+                                <h6 class="dropdown-header">Categorias</h6>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="./store.html">Vinilos</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="./store.html">Discos</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="./store.html">Artículos varios</a>
+                            </li>
+                            <li>
+                                <a aria-label="Abrir la página de la Tienda de la Disquería" class="dropdown-item" href="./store.html">Todas</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <div class="vr" aria-hidden="true"></div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./offers.html">Ofertas</a>
+                    </li>
+                    <div class="vr" aria-hidden="true"></div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./about.html">Nosotros</a>
+                    </li>
+                    <div class="vr" aria-hidden="true"></div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./contact.html">Contacto</a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Search Modal for screen size < 576px -->
+            <button type="button" class="btn searchModalButton" data-bs-toggle="modal" data-bs-target="#exampleModal" aria-label="Abrir modal con el formulario de búsqueda">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                </svg>
+            </button>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body searchModal">
+                            <form action="" class="searchBar" aria-label="Formulario de búsqueda de productos">
+                                <svg class="searchBar__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                                </svg>
+                                <input type="search" class="searchBar__input btn" placeholder="Buscar artículos" aria-label="Barra de búsqueda para buscar productos de la Tienda de La Disquería">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Search Form for screen size >= 576px -->
+            <form class="searchBar searchBarCnt" aria-label="Formulario de búsqueda de productos">
+                <span class="searchBar__icon">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                    </svg>
+                </span>
+                <input aria-label="Barra de búsqueda para buscar productos de la Tienda de La Disquería" type="search" class="form-control searchBar__input" placeholder="Buscar">
+            </form>
+            <div class="contact ps-2 me-3" aria-label="Sección con links a redes sociales y whatsup">
+                <a class="contactLink p-1" href="https://www.facebook.com/" target="_blank" aria-label="Abrir página de Facebook de La Disquería">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+                    </svg>                           
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Alternar navegación">
-                    <span class="navbar-toggler-icon"></span>
+                <a aria-label="Abrir perfil de Instagram de La Disquería" class="contactLink ms-1 p-1" target="_blank" href="https://www.instagram.com/">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+                        <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
+                    </svg>                           
+                </a>
+                <a aria-label="Abrir chat de Whatsapp en WhatsApp Web con personal de La Disquería" class="contactLink ms-1 p-1" href="https://web.whatsapp.com/" target="_blank">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+                        <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+                    </svg>
+                </a>
+            </div>
+            <a aria-label="Abrir carrito de compras con productos seleccionados" class="nav-link btn p-2 cart" href="#">
+                <svg aria-label="Imagen del carrito de compras" xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
+                    <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l1.25 5h8.22l1.25-5zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/>
+                </svg>                           
+            </a>
+            <div class="dropdown user">
+                <button aria-label="Desplegar menú de usuario" class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                    <svg aria-label="Silueta de persona" xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                    </svg>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-md-4">
+                <ul aria-label="Menú con opciones para el usuario" class="dropdown-menu dropdown-menu-end">
+                    <li>
+                        <a class="dropdown-item" href="./register.html">Iniciar sesion</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="./register.html">Registrarse</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- Bottom Navigation for screen size < 576px -->
+    <nav class="navbar fixed-bottom bottomNavigation" aria-label="Barra de navegación inferior">
+        <div class="container-fluid">
+            <button aria-label="Desplegar offcanvas con el menú de navegación de La Disquería" class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbottomNavigation">
+                <span aria-hidden="true" class="navbar-toggler-icon"></span>
+            </button>
+            <div aria-label="Offcanvas con menú de navegación de La Disquería" class="offcanvas offcanvas-start" tabindex="-1" id="navbottomNavigation">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title">Navegación</h5>
+                    <button aria-label="Cerrar el offcanvas con menú de navegación" type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navigation navbar-nav" aria-label="Menú de navegación de la Disquería">
                         <li class="nav-item">
                             <a class="nav-link" href="../index.html">Inicio</a>
                         </li>
+                        <div class="vr" aria-hidden="true"></div>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle active" role="button" href="#" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" aria-current="page">Tienda</a>
-                            <ul class="dropdown-menu">
+                            <a aria-label="Desplegar menú con categorías de la Tienda de La Disquería" class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Tienda</a>
+                            <ul aria-label="Menú con categorías de la Tienda" class="dropdown-menu">
                                 <li>
                                     <h6 class="dropdown-header">Categorias</h6>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="./store.html">Todas</a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item" href="./store.html">Vinilos</a>
@@ -39,128 +159,56 @@
                                     <a class="dropdown-item" href="./store.html">Discos</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="./store.html">Libros y más</a>
-                                </li>      
+                                    <a class="dropdown-item" href="./store.html">Artículos varios</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="./store.html" aria-label="Abrir la página de la Tienda de la Disquería">Todas</a>
+                                </li>
                             </ul>
                         </li>
+                        <div class="vr" aria-hidden="true"></div>
                         <li class="nav-item">
                             <a class="nav-link" href="./offers.html">Ofertas</a>
                         </li>
+                        <div class="vr" aria-hidden="true"></div>
                         <li class="nav-item">
                             <a class="nav-link" href="./about.html">Nosotros</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./news.html">Novedades</a>
-                        </li>
+                        <div class="vr" aria-hidden="true"></div>
                         <li class="nav-item">
                             <a class="nav-link" href="./contact.html">Contacto</a>
                         </li>
                     </ul>
-                    <div class="ms-md-auto">
-                        <button class="btn btn-outline-primary" type="button" aria-label="Inicia sesión con tu cuenta personal">Iniciar Sesión</button>
-                        <a class="btn btn-outline-primary" href="./register.html" aria-label="Crea una cuenta personal en el sitio web">Registro</a>
-                    </div>
                 </div>
             </div>
-        </nav>
-    </header>
-
-    <main>
-        <!-- Currently empty until the code is ready. -->
-    </main>
-
-    <footer class="container-fluid">
-        <div class="row">
-            <div class="col-lg-3 pb-4 text-center">
-                <div class="ftrContainer">
-                    <div class="ftrContainer__item mx-auto">
-                        <a href="#" aria-label="Redirige a la página principal">
-                            <img src="../assets/img.jpg" class="logoImg" alt="Logo de 'La Disquería'">
-                            <h4>La Disquería</h4>
-                            <h5><span class="fst-italic">Tienda de música</span></h5>
-                        </a>
-                    </div>
+            <a aria-label="Abrir carrito de compras con productos seleccionados" class="nav-link btn p-2 cartBottom" href="#">
+                <svg aria-label="Imagen de carrito de compras" xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
+                    <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l1.25 5h8.22l1.25-5zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/>
+                </svg>                           
+            </a>
+            <button aria-label="Abrir offcanvas con menú de usuario" class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbottomUser">
+                <svg aria-label="Silueta de persona" xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                </svg>
+            </button> 
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="navbottomUser">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title">Menu de usuario</h5>
+                    <button aria-label="Cerrar offcanvas con menú de usuario" type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
                 </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <nav class="ftrContainer" role="navigation">
-                    <ul class="ftrContainer__item">
-                        <li>
-                            <h5>Principal</h5>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav navigation">
+                        <li class="nav-item">
+                            <a class="nav-link" href="./register.html">Iniciar sesion</a>
                         </li>
-                        <li class="list__item">
-                            <a href="../index.html">Inicio</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./register.html">Registrarse</a>
                         </li>
-                        <li class="list__item">
-                            <a href="./store.html" aria-current="page">Tienda</a>
-                        </li>
-                        <li class="list__item">
-                            <a href="./offers.html">Ofertas</a>
-                        </li>
-                        <li class="list__item">
-                            <a href="./about.html">Nosotros</a>
-                        </li>
-                        <li class="list__item">
-                            <a href="./news.html">Novedades</a>
-                        </li>
-                        <li class="list__item">
-                            <a href="./contact.html">Contacto</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>    
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="ftrContainer">
-                    <ul class="ftrContainer__item">
-                        <li>
-                            <h5>Redes</h5>
-                        </li>
-                        <li>
-                            <a href="#" aria-label="Dirige al Instagram de 'La Disquería'">
-                                <img src="../assets/img.jpg" class="mediaImg" alt="Logo de Instagram">Instagram
-                            </a>
-                        </li>
-                        <li class="itemGap">
-                            <a href="#" aria-label="Dirige al Facebook de 'La Disquería'">
-                                <img src="../assets/img.jpg" class="mediaImg" alt="Logo de Facebook">Facebook
-                            </a>
-                        </li>
-                        <li>
-                            <h5>Movil</h5>
-                        </li>
-                        <li class="itemGap">
-                            <img src="../assets/img.jpg" class="mediaImg" alt="Logo de WhatsApp">1112345678
-                        </li>
-                        <li>
-                            <h5>Correo</h5>
-                        </li>
-                        <li>
-                            <img src="../assets/img.jpg" class="mediaImg" alt="Símbolo indicador de un correo electrónico">disqueria@gmail.com
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="ftrContainer">
-                    <ul class="ftrContainer__item">
-                        <li>
-                            <h5>Dirección</h5>
-                        </li>
-                        <li class="itemGap">
-                            <img src="../assets/img.jpg" class="mediaImg" alt="Símbolo indicador de una dirección">Calle Wallaby 42 Sidney
-                        </li>
-                        <li>
-                            <h5>Horarios</h5>
-                        </li>
-                        <li>Lunes-Viernes: 08-20hs</li>
-                        <li>Sábado: 10-20hs</li>
-                        <li>Domingo: <span class="fst-italic">cerrado</span></li>
                     </ul>
                 </div>
             </div>
         </div>
-        <p class="pt-5 text-center">&copy; 2024 Juan Jose Grillo. Todos los derechos reservados.</p>
-    </footer>
+    </nav>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>  
 </body>
