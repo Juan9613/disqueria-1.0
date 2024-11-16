@@ -5,7 +5,7 @@ Este proyecto tiene como propósito presentar el desarrollo front-end de un siti
 
 ## Tecnologías
 -HTML
--CSS
+-CSS&SCSS
 -Bootstrap
 -Javascript
 -React.js
